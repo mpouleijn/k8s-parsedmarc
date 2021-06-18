@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: parsedmarc-geoip-disk
+spec:
+  accessModes:
+  - ReadWriteMany
+  storageClassName: geoip-azurefile
+  resources:
+    requests:
+      storage: 1Gi

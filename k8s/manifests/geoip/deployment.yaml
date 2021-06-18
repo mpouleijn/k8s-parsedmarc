@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: geoip-deployment
+  name: geoip-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: geoip-deployment
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: geoip-deployment
+    spec:
+      containers:
+      - image: maxmindinc/geoipupdate:v4.7
+        name: geoipupdate
+        resources: 
+          requests:
+            cpu: 100m
+            memory: 50Mi
+          limits:
+            cpu: 150m
+            memory: 100Mi
+      volumeMounts:
+        - mountPath: "/usr/share/GeoIP"
+          name: volume
+    volumes:
+      - name: volume
+        persistentVolumeClaim:
+          claimName: parsedmarc-geoip-disk
+status: {}

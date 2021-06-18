@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: parsedmarc-main
+  namespace: argocd
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  project: production
+  source:
+    path: k8s/manifests/parsedmarc
+    repoURL: https://github.com/mpouleijn/parsedmarc.git
+    targetRevision: HEAD
+  destination:
+    namespace: parsedmarc
+    server: https://kubernetes.default.svc
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true
