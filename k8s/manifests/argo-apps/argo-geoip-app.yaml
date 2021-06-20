@@ -7,7 +7,7 @@ spec:
   project: randsomeware
   source:
     path: k8s/manifests/geoip
-    repoURL: https://github.com/mpouleijn/parsedmarc.git
+    repoURL: https://github.com/mpouleijn/k8s-parsedmarc.git
   destination:
     namespace: parsedmarc
     server: https://kubernetes.default.svc

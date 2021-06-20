@@ -23,7 +23,7 @@ metadata:
 spec:
   project: randsomeware
   source:
-    repoURL: https://github.com/mpouleijn/parsedmarc.git
+    repoURL: https://github.com/mpouleijn/k8s-parsedmarc.git
     path: k8s/manifests/argo-apps
   destination:
     server: https://kubernetes.default.svc
