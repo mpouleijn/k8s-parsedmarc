@@ -18,15 +18,12 @@ status: {}
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: parsedmarc
+  name: parsedmarc-main
   namespace: argocd
-  finalizers:
-    - resources-finalizer.argocd.argoproj.io
 spec:
   project: randsomeware
   source:
     repoURL: https://github.com/mpouleijn/parsedmarc.git
-    targetRevision: HEAD
     path: k8s/manifests/argo-apps
   destination:
     server: https://kubernetes.default.svc

@@ -3,14 +3,11 @@ kind: Application
 metadata:
   name: parsedmarc-geoip
   namespace: argocd
-  finalizers:
-  - resources-finalizer.argocd.argoproj.io
 spec:
   project: randsomeware
   source:
     path: k8s/manifests/geoip
     repoURL: https://github.com/mpouleijn/parsedmarc.git
-    targetRevision: HEAD
   destination:
     namespace: parsedmarc
     server: https://kubernetes.default.svc
