@@ -20,6 +20,7 @@ spec:
       containers:
       - image: maxmindinc/geoipupdate:v4.7
         name: geoipupdate
+        serviceAccountName: parsedmarc-sa
         resources: 
           requests:
             cpu: 100m

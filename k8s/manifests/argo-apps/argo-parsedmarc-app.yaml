@@ -1,14 +1,14 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: parsedmarc-geoip
+  name: parsedmarc-main
   namespace: argocd
   finalizers:
   - resources-finalizer.argocd.argoproj.io
 spec:
-  project: production
+  project: randsomeware
   source:
-    path: k8s/manifests/geoip
+    path: k8s/manifests/parsedmarc
     repoURL: https://github.com/mpouleijn/parsedmarc.git
     targetRevision: HEAD
   destination:
