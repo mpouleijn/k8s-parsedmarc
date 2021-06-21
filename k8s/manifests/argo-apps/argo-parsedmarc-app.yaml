@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: parsedmarc
-  namespace: argocd
+  namespace: parsedmarc
 spec:
   project: randsomeware
   source:

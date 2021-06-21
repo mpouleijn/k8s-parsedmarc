@@ -3,23 +3,23 @@ kind: Deployment
 metadata:
   creationTimestamp: null
   labels:
-    app.kubernetes.io/name: geoip
+    app.kubernetes.io/name: parsedmarc
     app.kubernetes.io/part-of: randsomeware-project
-    app.kubernetes.io/version: 4.7.0
+    app.kubernetes.io/version: 6.12.0
     app.kubernetes.io/managed-by: argocd
     team: microservices
-  name: geoip-deployment
+  name: parsedmarc-deployment
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app.kubernetes.io/name: geoip
+      app.kubernetes.io/name: parsedmarc
   strategy: {}
   template:
     metadata:
       creationTimestamp: null
       labels:
-        app.kubernetes.io/name: geoip
+        app.kubernetes.io/name: parsedmarc
         app.kubernetes.io/part-of: randsomeware-project
         app.kubernetes.io/version: 6.12.0
         app.kubernetes.io/managed-by: argocd
@@ -27,21 +27,8 @@ spec:
     spec:
       serviceAccountName: parsedmarc-sa
       containers:
-      - image: maxmindinc/geoipupdate:v4.7
-        name: geoipupdate
-        env:
-        - name: GEOIPUPDATE_ACCOUNT_ID
-          valueFrom:
-            secretKeyRef:
-              name: geoip
-              key: account_id
-        - name: GEOIPUPDATE_LICENSE_KEY
-          valueFrom:
-            secretKeyRef:
-              name: geoip
-              key: license_key
-        - name: GEOIPUPDATE_FREQUENCY
-          value: "24"
+      - image: mpouleijn/parsedmarc:v6.12.0
+        name: parsedmarc
         resources: 
           requests:
             cpu: 100m
