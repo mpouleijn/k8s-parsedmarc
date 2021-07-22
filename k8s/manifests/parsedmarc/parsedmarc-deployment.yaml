@@ -39,8 +39,17 @@ spec:
         volumeMounts:
           - mountPath: "/usr/share/GeoIP"
             name: volume
+          - mountPath: "/home/parsedmarc"
+            name: parsedmarc
+            readOnly: true
       volumes:
         - name: volume
           persistentVolumeClaim:
             claimName: parsedmarc-geoip-disk
+        - name: parsedmarc
+          secret:
+            secretName: parsedmarc
+            items:
+            - key: parsedmarc.ini
+              path: parsedmarc.ini
 status: {}
