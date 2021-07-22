@@ -30,7 +30,7 @@ sudo install -m 755 kubeseal /usr/local/bin/kubeseal
 Cluster side - Install SealedSecret CRD, server-side controller into kube-system namespace.
 
 ```bash
-kubectl apply -f https://github.com/bitnami-labs/sealed-secrets/releases/download/v0.16.0/controller.yaml
+kubectl apply -f https://raw.githubusercontent.com/mpouleijn/parsedmarc/k8s/manifests/sealed-secrets-app.yaml
 ```
 
 ## Set/update application config
