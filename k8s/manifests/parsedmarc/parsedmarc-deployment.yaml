@@ -29,9 +29,7 @@ spec:
       containers:
       - image: mpouleijn/parsedmarc:6.12.0
         name: parsedmarc
-        #command: [ "parsedmarc", "-c", "parsedmarc.ini" ]
-        command: [ "/bin/bash", "-c", "--" ]
-        args: [ "while true; do sleep 30; done;" ]
+        command: [ "parsedmarc", "-c", "parsedmarc.ini" ]
         resources: 
           requests:
             cpu: 100m
