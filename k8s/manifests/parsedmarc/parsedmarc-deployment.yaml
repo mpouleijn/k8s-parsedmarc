@@ -27,8 +27,11 @@ spec:
     spec:
       serviceAccountName: parsedmarc-sa
       containers:
-      - image: mpouleijn/parsedmarc:v6.12.0
+      - image: mpouleijn/parsedmarc:6.12.0
         name: parsedmarc
+        #command: [ "parsedmarc", "-c", "parsedmarc.ini" ]
+        command: [ "/bin/bash", "-c", "--" ]
+        args: [ "while true; do sleep 30; done;" ]
         resources: 
           requests:
             cpu: 100m
