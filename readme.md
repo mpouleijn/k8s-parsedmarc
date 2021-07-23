@@ -37,12 +37,12 @@ kubectl apply -f https://raw.githubusercontent.com/mpouleijn/parsedmarc/k8s/mani
 
 Create a encrypted secret for the GeoIP license keys
 ```shell
-kubectl -n parsedmarc create secret generic geoip --dry-run=client --from-literal account_id=xxxxxx  --from-literal license_key=xxxxx --from-literal frequency=24 --output json | kubeseal | tee k8s/manifests/geoip/secret.yaml
+kubectl -n parsedmarc create secret generic geoip --dry-run=client --from-literal account_id=xxxxxx  --from-literal license_key=xxxxx --from-literal frequency=24 --output json | kubeseal | tee k8s/manifests/geoip/geoip-secret.yaml
 ```
 
 Create a encrypted secret for the parseDMARC configuration
 ```shell
-kubectl -n parsedmarc create secret generic parsedmarc --dry-run=client --from-file k8s/manifests/parsedmarc/parsedmarc.ini --output json | kubeseal | tee k8s/manifests/parsedmarc/secret.yaml
+kubectl -n parsedmarc create secret generic parsedmarc --dry-run=client --from-file k8s/manifests/parsedmarc/parsedmarc.ini --output json | kubeseal | tee k8s/manifests/parsedmarc/parsedmarc-secret.yaml
 ```
 
 ## Install parseDMARC related apps
