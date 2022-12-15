@@ -2,7 +2,7 @@ FROM python:3.9-slim
 
 LABEL maintainer="michel.pouleijn@simac.com"
 
-ENV PARSEDMARC_VERSION 6.12.0
+ENV PARSEDMARC_VERSION 8.3.2
 
 RUN groupadd --gid 1000 parsedmarc \
   && useradd --uid 1000 --gid parsedmarc --shell /bin/bash --create-home parsedmarc
