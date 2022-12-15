@@ -5,7 +5,7 @@ metadata:
   labels:
     app.kubernetes.io/name: parsedmarc
     app.kubernetes.io/part-of: randsomeware-project
-    app.kubernetes.io/version: 6.12.0
+    app.kubernetes.io/version: 8.2.3
     app.kubernetes.io/managed-by: argocd
     team: microservices
   name: parsedmarc-deployment
@@ -21,13 +21,13 @@ spec:
       labels:
         app.kubernetes.io/name: parsedmarc
         app.kubernetes.io/part-of: randsomeware-project
-        app.kubernetes.io/version: 6.12.0
+        app.kubernetes.io/version: 8.2.3
         app.kubernetes.io/managed-by: argocd
         team: microservices
     spec:
       serviceAccountName: parsedmarc-sa
       containers:
-      - image: mpouleijn/parsedmarc:6.12.0
+      - image: ghcr.io/mpouleijn/k8s-parsedmarc:master
         name: parsedmarc
         command: [ "parsedmarc", "-c", "parsedmarc.ini", "--debug" ]
         resources: 
